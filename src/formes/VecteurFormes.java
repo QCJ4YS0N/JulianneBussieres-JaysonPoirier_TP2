@@ -7,6 +7,7 @@
 package formes;
 
 import exceptions.FormeException;
+import utile.Utile;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,20 @@ public class VecteurFormes {
      * Mélanger les éléments du vecteur.
      */
     public void melanger() {
+        ArrayList<Forme> newTab = new ArrayList<>();
+        int randomInt = Utile.getNombreAleatoireEntreBorne(0, (vecteur.size() - 1));
 
+        for (int i = 0; i < vecteur.size(); i++) {
+            if (!newTab.contains(vecteur.get(randomInt))) {
+                newTab.add(vecteur.get(randomInt));
+            } else {
+                i--;
+            }
+
+            randomInt = Utile.getNombreAleatoireEntreBorne(-1, (vecteur.size() - 1));
+        }
+
+        vecteur = newTab;
     }
 
     private void permuter(int a, int b) {
@@ -63,29 +77,27 @@ public class VecteurFormes {
      * @param nbrElements le nombre de formes voulues
      */
     public void remplir(int nbrElements) throws FormeException {
-        while (vecteur.size() < nbrElements) {
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 6; j++) {
-                    if (i == 0) {
-                        vecteur.add(new Cercle(1));
-                    } else if (i == 1) {
-                        vecteur.add(new Rectangle(1, 1));
-                    } else {
-                        vecteur.add(new Triangle(1, 1, 1));
-                    }
-                    if (j == 0) {
-                        vecteur.get(vecteur.size() - 1).setCouleur(Couleur.BLEU);
-                    } else if (j == 1) {
-                        vecteur.get(vecteur.size() - 1).setCouleur(Couleur.NOIR);
-                    } else if (j == 2) {
-                        vecteur.get(vecteur.size() - 1).setCouleur(Couleur.ORANGE);
-                    } else if (j == 3) {
-                        vecteur.get(vecteur.size() - 1).setCouleur(Couleur.ROUGE);
-                    } else if (j == 4) {
-                        vecteur.get(vecteur.size() - 1).setCouleur(Couleur.VERT);
-                    } else {
-                        vecteur.get(vecteur.size() - 1).setCouleur(Couleur.JAUNE);
-                    }
+        for (int i = 0; i < 3 && vecteur.size() < nbrElements; i++) {
+            for (int j = 0; j < 6 && vecteur.size() < nbrElements; j++) {
+                if (i == 0) {
+                    vecteur.add(new Cercle(1));
+                } else if (i == 1) {
+                    vecteur.add(new Rectangle(1, 1));
+                } else {
+                    vecteur.add(new Triangle(1, 1, 1));
+                }
+                if (j == 0) {
+                    vecteur.get(vecteur.size() - 1).setCouleur(Couleur.BLEU);
+                } else if (j == 1) {
+                    vecteur.get(vecteur.size() - 1).setCouleur(Couleur.NOIR);
+                } else if (j == 2) {
+                    vecteur.get(vecteur.size() - 1).setCouleur(Couleur.ORANGE);
+                } else if (j == 3) {
+                    vecteur.get(vecteur.size() - 1).setCouleur(Couleur.ROUGE);
+                } else if (j == 4) {
+                    vecteur.get(vecteur.size() - 1).setCouleur(Couleur.VERT);
+                } else {
+                    vecteur.get(vecteur.size() - 1).setCouleur(Couleur.JAUNE);
                 }
             }
         }

@@ -8,6 +8,7 @@ package jeu;
 
 import exceptions.FormeException;
 import formes.*;
+import utile.Utile;
 //test
 import java.awt.*;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private Point choisirForme() {
-        return new Point(getNombreAleatoireEntreBorne(0,6), getNombreAleatoireEntreBorne(0,6));
+        return new Point(Utile.getNombreAleatoireEntreBorne(0,6), Utile.getNombreAleatoireEntreBorne(0,6));
     }
 
     public Forme[][] getGrille() {
@@ -72,15 +73,6 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public String getNomForme(int ligne, int colonne) {
         return grilleDeJeu[colonne][ligne].getNom() + grilleDeJeu[colonne][ligne].getCouleur();
-    }
-
-    public static int getNombreAleatoireEntreBorne(int min, int max) {
-        if (min >= max) {
-            throw new IllegalArgumentException("max doit etre plus grand que min");
-        }
-
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
     }
 
     public VecteurFormes getVecteur() {
