@@ -41,7 +41,10 @@ public class VecteurFormes {
     }
 
     private void permuter(int a, int b) {
+        Forme f1 = vecteur.get(a);
 
+        vecteur.set(a, vecteur.get(b));
+        vecteur.set(b, f1);
     }
 
     /**
