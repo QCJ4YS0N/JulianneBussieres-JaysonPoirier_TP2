@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class JeuMemoire implements IJeuMemoire {
-//testy
+
     public static final int COLONNE = 6;
     public static final int LIGNE = 6;
     private static final int LONGUEUR_CHAINE = 17;
