@@ -11,6 +11,7 @@ import formes.*;
 //test
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
 
@@ -43,7 +44,7 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private Point choisirForme() {
-        //todo retourne un Point dont les coordonnées (colonne et ligne) sont prises au hasard dans les limites de la grille de jeu
+        return new Point(getNombreAleatoireEntreBorne(0,6), getNombreAleatoireEntreBorne(0,6));
     }
 
     public Forme[][] getGrille() {
@@ -71,6 +72,15 @@ public class JeuMemoire implements IJeuMemoire {
     @Override
     public String getNomForme(int ligne, int colonne) {
         return grilleDeJeu[colonne][ligne].getNom() + grilleDeJeu[colonne][ligne].getCouleur();
+    }
+
+    public static int getNombreAleatoireEntreBorne(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max doit etre plus grand que min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
 
     public VecteurFormes getVecteur() {
@@ -111,6 +121,7 @@ public class JeuMemoire implements IJeuMemoire {
         for (int i = 0; i < (niveau + 2); i++) {
             //todo trouver la méthode java pour point unique
             vecteurPoints.add(choisirForme());
+
         }
         return vecteurPoints;
     }
