@@ -178,9 +178,4 @@ public class JeuMemoire implements IJeuMemoire {
 
         return str;
     }
-
-
-    public static void main(String[] args) {
-
-    }
 }
