@@ -4,8 +4,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class JeuMemoireTest {
+    static JeuMemoire jeu;
+
+    @BeforeAll
+    static void init() {
+        jeu = new JeuMemoire();
+    }
+
     @Test
     void getGrille() {
+        System.out.println(jeu.getGrille());
     }
 
     @Test

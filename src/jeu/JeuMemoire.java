@@ -121,6 +121,7 @@ public class JeuMemoire implements IJeuMemoire {
         boolean unique = true;
         Point pointTemp;
 
+        vecteurPoints = new ArrayList<>();
         for (int i = 0; i < (niveau + 2); i++) {
             pointTemp = choisirForme();
             for (int j = 0; j < vecteurPoints.size(); j++) {
@@ -148,6 +149,7 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private void preparerVecteurFormes() throws FormeException {
+        vecteurFormes = new VecteurFormes();
         vecteurFormes.remplir(NBR_ELEMENTS_GRILLE);
         vecteurFormes.melanger();
     }
