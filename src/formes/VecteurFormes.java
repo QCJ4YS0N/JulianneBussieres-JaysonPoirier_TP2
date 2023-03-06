@@ -1,6 +1,6 @@
 /*
 420-202 – TP2 – Traitement de données orienté objet
- Lien GIT Hub : https://github.com/robertAube/TP2/commits/main
+ Lien GIT Hub : https://github.com/QCJ4YS0N/JulianneBussieres-JaysonPoirier_TP2
  Nom : Bussières, Julianne; 2236326
  Nom : Poirier, Jayson; 2243405
 */
@@ -79,30 +79,51 @@ public class VecteurFormes {
      */
     public void remplir(int nbrElements) throws FormeException {
         if (validerNbrFormes(nbrElements)) {
-
             while (vecteur.size() < nbrElements) {
                 for (int i = 0; i < 3 && vecteur.size() < nbrElements; i++) {
                     for (int j = 0; j < 6 && vecteur.size() < nbrElements; j++) {
                         if (i == 0) {
-                            vecteur.add(new Cercle(1));
+                            if (j == 0) {
+                                addForme(new Cercle(1), Couleur.BLEU);
+                            } else if (j == 1) {
+                                addForme(new Cercle(1), Couleur.NOIR);
+                            } else if (j == 2) {
+                                addForme(new Cercle(1), Couleur.ORANGE);
+                            } else if (j == 3) {
+                                addForme(new Cercle(1), Couleur.ROUGE);
+                            } else if (j == 4) {
+                                addForme(new Cercle(1), Couleur.VERT);
+                            } else {
+                                addForme(new Cercle(1), Couleur.JAUNE);
+                            }
                         } else if (i == 1) {
-                            vecteur.add(new Rectangle(1, 1));
+                            if (j == 0) {
+                                addForme(new Rectangle(1, 1), Couleur.BLEU);
+                            } else if (j == 1) {
+                                addForme(new Rectangle(1, 1), Couleur.NOIR);
+                            } else if (j == 2) {
+                                addForme(new Rectangle(1, 1), Couleur.ORANGE);
+                            } else if (j == 3) {
+                                addForme(new Rectangle(1, 1), Couleur.ROUGE);
+                            } else if (j == 4) {
+                                addForme(new Rectangle(1, 1), Couleur.VERT);
+                            } else {
+                                addForme(new Rectangle(1, 1), Couleur.JAUNE);
+                            }
                         } else {
-                            vecteur.add(new Triangle(1, 1, 1));
-                        }
-
-                        if (j == 0) {
-                            vecteur.get(vecteur.size() - 1).setCouleur(Couleur.BLEU);
-                        } else if (j == 1) {
-                            vecteur.get(vecteur.size() - 1).setCouleur(Couleur.NOIR);
-                        } else if (j == 2) {
-                            vecteur.get(vecteur.size() - 1).setCouleur(Couleur.ORANGE);
-                        } else if (j == 3) {
-                            vecteur.get(vecteur.size() - 1).setCouleur(Couleur.ROUGE);
-                        } else if (j == 4) {
-                            vecteur.get(vecteur.size() - 1).setCouleur(Couleur.VERT);
-                        } else {
-                            vecteur.get(vecteur.size() - 1).setCouleur(Couleur.JAUNE);
+                            if (j == 0) {
+                                addForme(new Triangle(1, 1, 1), Couleur.BLEU);
+                            } else if (j == 1) {
+                                addForme(new Triangle(1, 1, 1), Couleur.NOIR);
+                            } else if (j == 2) {
+                                addForme(new Triangle(1, 1, 1), Couleur.ORANGE);
+                            } else if (j == 3) {
+                                addForme(new Triangle(1, 1, 1), Couleur.ROUGE);
+                            } else if (j == 4) {
+                                addForme(new Triangle(1, 1, 1), Couleur.VERT);
+                            } else {
+                                addForme(new Triangle(1, 1, 1), Couleur.JAUNE);
+                            }
                         }
                     }
                 }
@@ -125,22 +146,21 @@ public class VecteurFormes {
     /**
      * Trier en ordre croissant le vecteur de formes en utilisant le "compareTo"
      * disponible sur les objets.
+     *
+     * Méthode de tri: Sélection
      */
     public void trier() {
-        int i;
-        int j;
         int plusPetit;
 
-        for (i = 0; i < vecteur.size(); i++) {
+        for (int i = 0; i < vecteur.size(); i++) {
             plusPetit = i;
-            for (j = i + 1; j < vecteur.size(); j++) {
-                if (vecteur.get(plusPetit).compareTo(vecteur.get(j)) < 0) {
+            for (int j = i + 1; j < vecteur.size(); j++) {
+                if (vecteur.get(plusPetit).compareTo(vecteur.get(j)) > 0) {
                     plusPetit = j;
                 }
             }
             permuter(plusPetit, i);
         }
-
     }
 
     private static boolean validerNbrFormes(int nbrForme) {
