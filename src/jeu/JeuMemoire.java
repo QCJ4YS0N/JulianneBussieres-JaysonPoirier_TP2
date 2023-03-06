@@ -91,7 +91,14 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public boolean jouerHumain(int ligne, int colonne) {
+        Point pointADeviner = vecteurPoints.get(0);
+        vecteurPoints.remove(0);
 
+        if (pointADeviner.equals(new Point(colonne, ligne))) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -110,11 +117,22 @@ public class JeuMemoire implements IJeuMemoire {
      */
     @Override
     public ArrayList<Point> jouerOrdi() {
-        for (int i = 0; i < (niveau + 2); i++) {
-            //todo trouver la méthode java pour point unique
-            vecteurPoints.add(choisirForme());
+        boolean unique = true;
+        Point pointTemp;
 
+        for (int i = 0; i < (niveau + 2); i++) {
+            pointTemp = choisirForme();
+            for (int j = 0; j < vecteurPoints.size(); j++) {
+                if (vecteurPoints.get(i) == pointTemp) {
+                    unique = false;
+                }
+            }
+
+            if (unique) {
+                vecteurPoints.add(choisirForme());
+            }
         }
+
         return vecteurPoints;
     }
 
