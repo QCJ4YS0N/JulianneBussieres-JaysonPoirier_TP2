@@ -12,6 +12,7 @@ import utile.Utile;
 //test
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
