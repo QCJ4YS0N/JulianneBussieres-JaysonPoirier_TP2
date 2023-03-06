@@ -38,15 +38,18 @@ public class VecteurFormes {
      */
     public void melanger() {
         ArrayList<Forme> newTab = new ArrayList<>();
+        ArrayList<Integer> randomIntTab = new ArrayList<>();
         int randomInt = Utile.getNombreAleatoireEntreBorne(0, (vecteur.size() - 1));
 
-        for (int i = 0; i < vecteur.size(); i++) {
-            if (!newTab.contains(vecteur.get(randomInt))) {
-                newTab.add(vecteur.get(randomInt));
-            } else {
-                i--;
+        while (randomIntTab.size() < vecteur.size()) {
+            if (!randomIntTab.contains(randomInt)) {
+                randomIntTab.add(randomInt);
             }
-            randomInt = Utile.getNombreAleatoireEntreBorne(0, (vecteur.size() - 1));
+            Utile.getNombreAleatoireEntreBorne(0, (vecteur.size() - 1));
+        }
+
+        for (int i = 0; i < vecteur.size(); i++) {
+            newTab.add(vecteur.get(randomIntTab.get(i)));
         }
 
         vecteur = newTab;
