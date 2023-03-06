@@ -45,7 +45,7 @@ public class VecteurFormes {
             if (!randomIntTab.contains(randomInt)) {
                 randomIntTab.add(randomInt);
             }
-            Utile.getNombreAleatoireEntreBorne(0, (vecteur.size() - 1));
+            randomInt = Utile.getNombreAleatoireEntreBorne(0, (vecteur.size() - 1));
         }
 
         for (int i = 0; i < vecteur.size(); i++) {

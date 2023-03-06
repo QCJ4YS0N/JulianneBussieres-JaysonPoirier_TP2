@@ -46,7 +46,7 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private Point choisirForme() {
-        return new Point(Utile.getNombreAleatoireEntreBorne(0,6), Utile.getNombreAleatoireEntreBorne(0,6));
+        return new Point(Utile.getNombreAleatoireEntreBorne(0,5), Utile.getNombreAleatoireEntreBorne(0,5));
     }
 
     public Forme[][] getGrille() {
@@ -125,8 +125,9 @@ public class JeuMemoire implements IJeuMemoire {
         for (int i = 0; i < (niveau + 2); i++) {
             pointTemp = choisirForme();
             for (int j = 0; j < vecteurPoints.size(); j++) {
-                if (vecteurPoints.get(i) == pointTemp) {
+                if (vecteurPoints.get(j) == pointTemp) {
                     unique = false;
+                    //todo fixer point unique
                 }
             }
 
@@ -141,6 +142,7 @@ public class JeuMemoire implements IJeuMemoire {
     private void preparerGrilleDeJeu() {
         int k = 0;
 
+        grilleDeJeu = new Forme[COLONNE][LIGNE];
         for (int i = 0; i < LIGNE; i++) {
             for (int j = 0; j < COLONNE; j++) {
                 grilleDeJeu[j][i] = vecteurFormes.getVecteur().get(k++);

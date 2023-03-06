@@ -13,7 +13,6 @@ class JeuMemoireTest {
 
     @Test
     void getGrille() {
-        System.out.println(jeu.getGrille());
     }
 
     @Test
