@@ -27,7 +27,10 @@ class JeuMemoireTest {
 
     @Test
     void getNiveau() {
-
+        for (int i = 0; i < JeuMemoire.NIVEAU_MAX; i++) {
+            assertEquals(i, jeu.getNiveau());
+            jeu.setNiveauPlusUn();
+        }
     }
 
     @Test
