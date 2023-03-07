@@ -127,12 +127,11 @@ public class JeuMemoire implements IJeuMemoire {
             for (int j = 0; j < vecteurPoints.size(); j++) {
                 if (vecteurPoints.get(j) == pointTemp) {
                     unique = false;
-                    //todo fixer point unique
                 }
             }
 
             if (unique) {
-                vecteurPoints.add(choisirForme());
+                vecteurPoints.add(pointTemp);
             }
         }
 
