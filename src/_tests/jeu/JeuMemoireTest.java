@@ -6,6 +6,8 @@
 */
 package jeu;
 
+import formes.*;
+import formes.VecteurFormes;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +37,16 @@ class JeuMemoireTest {
 
     @Test
     void getNomForme() {
+        VecteurFormes vecteurTest = jeu.getVecteur();
+        Forme formeTest;
+        String strTest;
+
+        for (int i = 0; i < JeuMemoire.COLONNE; i++) {
+            formeTest = vecteurTest.getVecteur().get(i);
+            strTest = formeTest.getNom()+formeTest.getCouleur();
+
+            assertEquals(strTest, jeu.getNomForme(0, i));
+        }
     }
 
     @Test
