@@ -14,8 +14,7 @@ public enum Couleur {
     NOIR,
     ORANGE,
     ROUGE,
-    VERT,
-    ROSE;
+    VERT;
 
     public String getNom() {
         return this.name().toLowerCase(Locale.ROOT);

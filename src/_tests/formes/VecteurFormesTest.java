@@ -28,15 +28,15 @@ class VecteurFormesTest {
         c1 = new Cercle(1);
         c1.setCouleur(Couleur.BLEU);
         c2 = new Cercle(1);
-        c2.setCouleur(Couleur.NOIR);
+        c2.setCouleur(Couleur.JAUNE);
         c3 = new Cercle(1);
-        c3.setCouleur(Couleur.ORANGE);
+        c3.setCouleur(Couleur.NOIR);
         c4 = new Cercle(1);
-        c4.setCouleur(Couleur.ROUGE);
+        c4.setCouleur(Couleur.ORANGE);
         c5 = new Cercle(1);
-        c5.setCouleur(Couleur.VERT);
+        c5.setCouleur(Couleur.ROUGE);
         c6 = new Cercle(1);
-        c6.setCouleur(Couleur.JAUNE);
+        c6.setCouleur(Couleur.VERT);
     }
 
     @Test
@@ -63,12 +63,14 @@ class VecteurFormesTest {
 
     @Test
     void trier() {
-        Forme[] bonVecteur = {c1, c6, c2, c3, c4, c5};
+        Forme[] bonVecteur = {c1, c2, c3, c4, c5, c6};
 
         remplir();
+        vecteur.melanger();
         vecteur.trier();
 
         for (int i = 0; i < bonVecteur.length; i++) {
+            System.out.println(vecteur.getVecteur().get(i));
             assertEquals(bonVecteur[i], vecteur.getVecteur().get(i));
         }
     }

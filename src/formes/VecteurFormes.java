@@ -11,10 +11,16 @@ import utile.Utile;
 
 import java.util.ArrayList;
 
+/**
+ * Permet de créer un vecteur (arrayList) contenant des formes
+ */
 public class VecteurFormes {
 
     private ArrayList<Forme> vecteur;
 
+    /**
+     * Constructeur de VecteurFormes, instancie l'array list vecteur
+     */
     public VecteurFormes() {
         vecteur = new ArrayList<>();
     }
@@ -81,56 +87,29 @@ public class VecteurFormes {
         if (validerNbrFormes(nbrElements)) {
             while (vecteur.size() < nbrElements) {
                 for (int i = 0; i < 3 && vecteur.size() < nbrElements; i++) {
-                    for (int j = 0; j < 6 && vecteur.size() < nbrElements; j++) {
-                        if (i == 0) {
-                            if (j == 0) {
-                                addForme(new Cercle(1), Couleur.BLEU);
-                            } else if (j == 1) {
-                                addForme(new Cercle(1), Couleur.NOIR);
-                            } else if (j == 2) {
-                                addForme(new Cercle(1), Couleur.ORANGE);
-                            } else if (j == 3) {
-                                addForme(new Cercle(1), Couleur.ROUGE);
-                            } else if (j == 4) {
-                                addForme(new Cercle(1), Couleur.VERT);
-                            } else {
-                                addForme(new Cercle(1), Couleur.JAUNE);
-                            }
-                        } else if (i == 1) {
-                            if (j == 0) {
-                                addForme(new Rectangle(1, 1), Couleur.BLEU);
-                            } else if (j == 1) {
-                                addForme(new Rectangle(1, 1), Couleur.NOIR);
-                            } else if (j == 2) {
-                                addForme(new Rectangle(1, 1), Couleur.ORANGE);
-                            } else if (j == 3) {
-                                addForme(new Rectangle(1, 1), Couleur.ROUGE);
-                            } else if (j == 4) {
-                                addForme(new Rectangle(1, 1), Couleur.VERT);
-                            } else {
-                                addForme(new Rectangle(1, 1), Couleur.JAUNE);
-                            }
-                        } else {
-                            if (j == 0) {
-                                addForme(new Triangle(1, 1, 1), Couleur.BLEU);
-                            } else if (j == 1) {
-                                addForme(new Triangle(1, 1, 1), Couleur.NOIR);
-                            } else if (j == 2) {
-                                addForme(new Triangle(1, 1, 1), Couleur.ORANGE);
-                            } else if (j == 3) {
-                                addForme(new Triangle(1, 1, 1), Couleur.ROUGE);
-                            } else if (j == 4) {
-                                addForme(new Triangle(1, 1, 1), Couleur.VERT);
-                            } else {
-                                addForme(new Triangle(1, 1, 1), Couleur.JAUNE);
-                            }
+                    if (i == 0) {
+                        for (Couleur couleur : Couleur.values()) {
+                            addForme(new Cercle(1), couleur);
+                        }
+                    } else if (i == 1) {
+                        for (Couleur couleur : Couleur.values()) {
+                            addForme(new Rectangle(1, 1), couleur);
+                        }
+                    } else {
+                        for (Couleur couleur : Couleur.values()) {
+                            addForme(new Triangle(1, 1, 1), couleur);
                         }
                     }
+
                 }
             }
         }
     }
 
+    /**
+     * Renvoie une string contenant le nom et la couleur de chaque forme sur différentes lignes
+     * @return le nom et la couleur de chaque forme dans le vecteur
+     */
     @Override
     public String toString() {
         String str = "";
@@ -146,7 +125,7 @@ public class VecteurFormes {
     /**
      * Trier en ordre croissant le vecteur de formes en utilisant le "compareTo"
      * disponible sur les objets.
-     *
+     * <p>
      * Méthode de tri: Sélection
      */
     public void trier() {

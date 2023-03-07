@@ -49,6 +49,10 @@ public class JeuMemoire implements IJeuMemoire {
         return new Point(Utile.getNombreAleatoireEntreBorne(0,5), Utile.getNombreAleatoireEntreBorne(0,5));
     }
 
+    /**
+     *
+     * @return
+     */
     public Forme[][] getGrille() {
         return grilleDeJeu;
     }
@@ -76,6 +80,10 @@ public class JeuMemoire implements IJeuMemoire {
         return grilleDeJeu[colonne][ligne].getNom() + grilleDeJeu[colonne][ligne].getCouleur();
     }
 
+    /**
+     * Retourne le vecteurForme
+     * @return vecteurForme
+     */
     public VecteurFormes getVecteur() {
         return vecteurFormes;
     }
