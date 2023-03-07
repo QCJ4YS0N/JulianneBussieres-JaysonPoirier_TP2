@@ -9,6 +9,8 @@ package jeu;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class JeuMemoireTest {
     static JeuMemoire jeu;
 
@@ -19,10 +21,13 @@ class JeuMemoireTest {
 
     @Test
     void getGrille() {
+        assertEquals(JeuMemoire.COLONNE, jeu.getGrille().length);
+        assertNotEquals(0, jeu.getGrille().length);
     }
 
     @Test
     void getNiveau() {
+
     }
 
     @Test
