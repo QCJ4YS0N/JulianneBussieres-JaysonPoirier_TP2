@@ -6,10 +6,13 @@
 */
 package jeu;
 
+import exceptions.FormeException;
 import formes.*;
 import formes.VecteurFormes;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,13 +25,13 @@ class JeuMemoireTest {
     }
 
     @Test
-    void getGrille() {
+    void getGrille_retourneGrilleDeBonneLongueur() {
         assertEquals(JeuMemoire.COLONNE, jeu.getGrille().length);
         assertNotEquals(0, jeu.getGrille().length);
     }
 
     @Test
-    void getNiveau() {
+    void getNiveau_retourneLeBonNiveau() {
         for (int i = 0; i < JeuMemoire.NIVEAU_MAX; i++) {
             assertEquals(i, jeu.getNiveau());
             jeu.setNiveauPlusUn();
@@ -36,7 +39,7 @@ class JeuMemoireTest {
     }
 
     @Test
-    void getNomForme() {
+    void getNomForme_retourneLeBonNomForme() {
         VecteurFormes vecteurTest = jeu.getVecteur();
         Forme formeTest;
         String strTest;
@@ -50,14 +53,19 @@ class JeuMemoireTest {
     }
 
     @Test
-    void getVecteur() {
+    void getVecteur_retourneUnVecteurFormesDeBonneLongueur() throws FormeException {
+        VecteurFormes vecteurTest = jeu.getVecteur();
+        vecteurTest.remplir(JeuMemoire.NBR_ELEMENTS_GRILLE);
+
+        assertEquals(JeuMemoire.NBR_ELEMENTS_GRILLE, vecteurTest.getVecteur().size());
+        assertNotEquals(JeuMemoire.COLONNE, vecteurTest.getVecteur().size());
     }
 
     @Test
-    void jouerHumain() {
+    void jouerHumain_retourneVraiSiDevineLeBonPoint() {
     }
 
     @Test
-    void jouerOrdi() {
+    void jouerOrdi_retourneDesPointsUniques() {
     }
 }
