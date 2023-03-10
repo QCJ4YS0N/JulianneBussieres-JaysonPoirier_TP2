@@ -9,11 +9,9 @@ package jeu;
 import exceptions.FormeException;
 import formes.*;
 import utile.Utile;
-//test
+
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 
 public class JeuMemoire implements IJeuMemoire {
 
@@ -46,11 +44,10 @@ public class JeuMemoire implements IJeuMemoire {
     }
 
     private Point choisirForme() {
-        return new Point(Utile.getNombreAleatoireEntreBorne(0,5), Utile.getNombreAleatoireEntreBorne(0,5));
+        return new Point(Utile.getNombreAleatoireEntreBorne(0, 5), Utile.getNombreAleatoireEntreBorne(0, 5));
     }
 
     /**
-     *
      * @return
      */
     public Forme[][] getGrille() {
@@ -82,6 +79,7 @@ public class JeuMemoire implements IJeuMemoire {
 
     /**
      * Retourne le vecteurForme
+     *
      * @return vecteurForme
      */
     public VecteurFormes getVecteur() {

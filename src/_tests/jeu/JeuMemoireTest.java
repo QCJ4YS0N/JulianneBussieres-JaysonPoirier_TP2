@@ -47,7 +47,7 @@ class JeuMemoireTest {
 
         for (int i = 0; i < JeuMemoire.COLONNE; i++) {
             formeTest = vecteurTest.getVecteur().get(i);
-            strTest = formeTest.getNom()+formeTest.getCouleur();
+            strTest = formeTest.getNom() + formeTest.getCouleur();
 
             assertEquals(strTest, jeu.getNomForme(0, i));
         }

@@ -108,6 +108,7 @@ public class VecteurFormes {
 
     /**
      * Renvoie une string contenant le nom et la couleur de chaque forme sur différentes lignes
+     *
      * @return le nom et la couleur de chaque forme dans le vecteur
      */
     @Override

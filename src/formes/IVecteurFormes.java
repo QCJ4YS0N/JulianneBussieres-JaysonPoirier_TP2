@@ -15,6 +15,7 @@ public interface IVecteurFormes {
 
     /**
      * Obtenir le vecteur de formes
+     *
      * @return le vecteur de formes
      */
     public ArrayList<Forme> getVecteur();
