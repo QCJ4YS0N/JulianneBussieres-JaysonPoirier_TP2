@@ -12,6 +12,7 @@ import formes.VecteurFormes;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -62,10 +63,29 @@ class JeuMemoireTest {
     }
 
     @Test
-    void jouerHumain_retourneVraiSiDevineLeBonPoint() {
-    }
+    void jouerOrdi_et_jouerHumain() {
+        ArrayList<Point> vecteurPointTest = jeu.jouerOrdi();
+        boolean unique = true;
+        Point pointTempTest;
+        Point pointADeviner = jeu.jouerOrdi().get(0);
+        int colonnePointADeviner = pointADeviner.x;
+        int lignePointADeviner = pointADeviner.y;
 
-    @Test
-    void jouerOrdi_retourneDesPointsUniques() {
+        assertEquals(jeu.getNiveau() + 2, vecteurPointTest.size());
+
+        for (int i = 0; i < (jeu.getNiveau() + 2); i++) {
+            pointTempTest = vecteurPointTest.get(i);
+            for (int j = 0; j < vecteurPointTest.size(); j++) {
+                if (vecteurPointTest.get(j) == pointTempTest) {
+                    unique = false;
+                }
+            }
+
+            if (unique) {
+                assertTrue(unique);
+            }
+        }
+
+        assertTrue(jeu.jouerHumain(lignePointADeviner, colonnePointADeviner));
     }
 }

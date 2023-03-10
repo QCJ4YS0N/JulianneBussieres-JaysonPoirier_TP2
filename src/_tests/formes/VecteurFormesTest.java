@@ -70,7 +70,6 @@ class VecteurFormesTest {
         vecteur.trier();
 
         for (int i = 0; i < bonVecteur.length; i++) {
-            System.out.println(vecteur.getVecteur().get(i));
             assertEquals(bonVecteur[i], vecteur.getVecteur().get(i));
         }
     }
