@@ -13,11 +13,25 @@ import utile.Utile;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Permet de créer un jeu de mémoire
+ */
 public class JeuMemoire implements IJeuMemoire {
-
+    /**
+     * Le nombre de colonne dans la grille de jeu est de 6
+     */
     public static final int COLONNE = 6;
+    /**
+     * Le nombre de ligne dans la grille de jeu est de 6
+     */
     public static final int LIGNE = 6;
+    /**
+     * La longueur de la chain de caractère pour chaque forme dans le toString est de 17
+     */
     private static final int LONGUEUR_CHAINE = 17;
+    /**
+     * Le nombre d'éléments dans la grille est de 36
+     */
     public static final int NBR_ELEMENTS_GRILLE = 36;
 
     private Forme[][] grilleDeJeu;
@@ -25,6 +39,9 @@ public class JeuMemoire implements IJeuMemoire {
     private VecteurFormes vecteurFormes;
     private ArrayList<Point> vecteurPoints;
 
+    /**
+     * Constructeur du jeu de mémoire, prépare le vecteur forme et la grille de jeu
+     */
     public JeuMemoire() {
         try {
             preparerVecteurFormes();
@@ -171,6 +188,11 @@ public class JeuMemoire implements IJeuMemoire {
         }
     }
 
+    /**
+     * Permet de mettre en mots la grille de jeu avec chaque forme ayant une ligne de 17 caractères
+     * et 6 formes par ligne et 6 formes par colonnes.
+     * @return la String de la grille de jeu contenant chaque forme et leur couleur
+     */
     @Override
     public String toString() {
         String strTemp = "";
